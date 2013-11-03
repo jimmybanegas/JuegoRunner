@@ -3,7 +3,10 @@
 
 Enemigo::Enemigo()
 {
-    va_para_la_derecha=true;
+    derecha=true;
+    izquierda=false;
+    arriba=true;
+    abajo=false;
     cuadroactual=0;
     //ctor
 }
@@ -40,15 +43,15 @@ void Enemigo::dibujar(SDL_Surface *screen)
 
 void Enemigo::logica()
 {
-    if(va_para_la_derecha)
+    if(derecha)
         this->x++;
     else
         this->x--;
 
     if(x>400)
-        va_para_la_derecha=false;
+        derecha=false;
 
     if(x<50)
-        va_para_la_derecha=true;
+        derecha=true;
 
 }

@@ -41,14 +41,14 @@ void Bomba::dibujar(SDL_Surface *screen)
 
 void Bomba::logica()
 {
-    if(va_para_la_derecha)
+    if(derecha)
         this->x++;
     else
         this->x--;
 
     if(x>400)
-        va_para_la_derecha=false;
+       derecha=false;
 
     if(x<50)
-        va_para_la_derecha=true;
+        derecha=true;
 }

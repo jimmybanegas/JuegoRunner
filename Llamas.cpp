@@ -40,14 +40,14 @@ void Llamas::dibujar(SDL_Surface *screen)
 
 void Llamas::logica()
 {
-    if(va_para_la_derecha)
+    if(derecha)
         this->y++;
     else
         this->y--;
 
     if(y>250)
-        va_para_la_derecha=false;
+       derecha=false;
 
     if(y<50)
-        va_para_la_derecha=true;
+       derecha=true;
 }

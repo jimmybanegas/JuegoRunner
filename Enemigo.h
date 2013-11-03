@@ -12,7 +12,10 @@ class Enemigo
 public:
     Personaje *personaje;
     int x,y,cuadroactual;
-    bool va_para_la_derecha;
+    bool derecha;
+    bool izquierda;
+    bool arriba;
+    bool abajo;
     std::vector <SDL_Surface*> sprites;
 
     virtual void dibujar(SDL_Surface *screen);
