@@ -1,0 +1,67 @@
+# depslib dependency file v1.0
+1383443960 source:c:\users\auditor3\documents\progra3\keystates10jimmy\main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<iostream>
+	"Personaje.h"
+	<vector>
+	"Enemigo.h"
+	"Fantasmita.h"
+	"Bomba.h"
+	"Llamas.h"
+	"Cocodrilo.h"
+
+1382749716 c:\users\auditor3\documents\progra3\keystates10jimmy\personaje.h
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+
+1383352417 source:c:\users\auditor3\documents\progra3\keystates10jimmy\personaje.cpp
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+	<iostream>
+
+1383443060 source:c:\users\auditor3\documents\progra3\keystates10jimmy\enemigo.cpp
+	"Enemigo.h"
+
+1383442888 c:\users\auditor3\documents\progra3\keystates10jimmy\enemigo.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+	"Personaje.h"
+
+1383443298 source:c:\users\auditor3\documents\progra3\keystates10jimmy\fantasmita.cpp
+	"Fantasmita.h"
+
+1383443516 c:\users\auditor3\documents\progra3\keystates10jimmy\fantasmita.h
+	"Enemigo.h"
+
+1383443507 c:\users\auditor3\documents\progra3\keystates10jimmy\bomba.h
+	"Enemigo.h"
+
+1383443302 source:c:\users\auditor3\documents\progra3\keystates10jimmy\bomba.cpp
+	"Bomba.h"
+
+1383443293 source:c:\users\auditor3\documents\progra3\keystates10jimmy\cocodrilo.cpp
+	"Cocodrilo.h"
+
+1383443518 c:\users\auditor3\documents\progra3\keystates10jimmy\cocodrilo.h
+	"Enemigo.h"
+
+1383443513 c:\users\auditor3\documents\progra3\keystates10jimmy\llamas.h
+	"Enemigo.h"
+
+1383443318 source:c:\users\auditor3\documents\progra3\keystates10jimmy\llamas.cpp
+	"Llamas.h"
+

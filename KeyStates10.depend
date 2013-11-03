@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1382736996 source:c:\users\auditor3\documents\progra3\keystates10\main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	"Personaje.h"
+
+1382736073 c:\users\auditor3\documents\progra3\keystates10\personaje.h
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+
+1382736745 source:c:\users\auditor3\documents\progra3\keystates10\personaje.cpp
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+
