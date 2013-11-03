@@ -41,14 +41,24 @@ void Fantasmita::dibujar(SDL_Surface *screen)
 
 void Fantasmita::logica()
 {
-    if(va_para_la_derecha)
-        this->y++;
+    if(arriba)
+     {
+        this->y+=8;
+        this->x+=8;
+     }
     else
-        this->y--;
+      {
+        this->y-=8;
+        this->x+=8;
+      }
 
-    if(y>250)
-        va_para_la_derecha=false;
+    if(x>900)
+        this->x-=8;
+        this->y+=8;
 
-    if(y<50)
-        va_para_la_derecha=true;
+    if(y>400)
+        arriba=false;
+
+    if(y<-10)
+        arriba=true;
 }

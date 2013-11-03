@@ -65,3 +65,69 @@
 1383443318 source:c:\users\auditor3\documents\progra3\keystates10jimmy\llamas.cpp
 	"Llamas.h"
 
+1383447758 source:c:\users\auditor3\documents\progra3\juegorunner\bomba.cpp
+	"Bomba.h"
+
+1383444410 c:\users\auditor3\documents\progra3\juegorunner\bomba.h
+	"Enemigo.h"
+
+1383448003 c:\users\auditor3\documents\progra3\juegorunner\enemigo.h
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+	"Personaje.h"
+
+1383444410 c:\users\auditor3\documents\progra3\juegorunner\personaje.h
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+
+1383447800 source:c:\users\auditor3\documents\progra3\juegorunner\cocodrilo.cpp
+	"Cocodrilo.h"
+
+1383444410 c:\users\auditor3\documents\progra3\juegorunner\cocodrilo.h
+	"Enemigo.h"
+
+1383447954 source:c:\users\auditor3\documents\progra3\juegorunner\enemigo.cpp
+	"Enemigo.h"
+
+1383448465 source:c:\users\auditor3\documents\progra3\juegorunner\fantasmita.cpp
+	"Fantasmita.h"
+
+1383444410 c:\users\auditor3\documents\progra3\juegorunner\fantasmita.h
+	"Enemigo.h"
+
+1383447820 source:c:\users\auditor3\documents\progra3\juegorunner\llamas.cpp
+	"Llamas.h"
+
+1383444410 c:\users\auditor3\documents\progra3\juegorunner\llamas.h
+	"Enemigo.h"
+
+1383447510 source:c:\users\auditor3\documents\progra3\juegorunner\main.cpp
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<iostream>
+	"Personaje.h"
+	<vector>
+	"Enemigo.h"
+	"Fantasmita.h"
+	"Bomba.h"
+	"Llamas.h"
+	"Cocodrilo.h"
+
+1383444410 source:c:\users\auditor3\documents\progra3\juegorunner\personaje.cpp
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
+	<iostream>
+

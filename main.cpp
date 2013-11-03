@@ -16,8 +16,8 @@ and may not be redistributed without written permission.*/
 #include "Cocodrilo.h"
 
 //Screen attributes
-const int SCREEN_WIDTH = 1040;
-const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1100;
+const int SCREEN_HEIGHT = 600;
 const int SCREEN_BPP = 32;
 
 //The surfaces
@@ -199,16 +199,16 @@ int main( int argc, char* args[] )
         if( keystates[ SDLK_UP ] )
         {
             //  apply_surface( ( SCREEN_WIDTH - up->w ) / 2, ( SCREEN_HEIGHT / 2 - up->h ) / 2, up, screen );
-            personaje->personaje_y-=5;
-            personaje->moviendose=true;
+               personaje->personaje_y-=10;
+               personaje->moviendose=true;
         }
 
         //If down is pressed
         if( keystates[ SDLK_DOWN ] )
         {
             //     apply_surface( ( SCREEN_WIDTH - down->w ) / 2, ( SCREEN_HEIGHT / 2 - down->h ) / 2 + ( SCREEN_HEIGHT / 2 ), down, screen );
-            personaje->personaje_y+=5;
-            personaje->moviendose=true;
+               personaje->personaje_y+=10;
+               personaje->moviendose=true;
         }
 
 
@@ -216,17 +216,16 @@ int main( int argc, char* args[] )
         if( keystates[ SDLK_LEFT ] )
         {
 //            apply_surface( ( SCREEN_WIDTH / 2 - left->w ) / 2, ( SCREEN_HEIGHT - left->h ) / 2, left, screen );
-            personaje->personaje_x-=5;
-            personaje->moviendose=true;
-
+               personaje->personaje_x-=10;
+               personaje->moviendose=true;
         }
 
         //If right is pressed
         if( keystates[ SDLK_RIGHT ] )
         {
 //            apply_surface( ( SCREEN_WIDTH / 2 - right->w ) / 2 + ( SCREEN_WIDTH / 2 ), ( SCREEN_HEIGHT - right->h ) / 2, right, screen );
-            personaje->personaje_x+=5;
-            personaje->moviendose=true;
+             personaje->personaje_x+=10;
+             personaje->moviendose=true;
         }
 
         //Update the screen
@@ -261,9 +260,9 @@ int main( int argc, char* args[] )
                 }
             }*/ // esto es haciendolo con ciclos
 
-        if(personaje->personaje_x+128>400 && personaje->personaje_x+128<450
-                & personaje->personaje_y+128>400 && personaje->personaje_y+128<450)
-            exit(0);
+      //  if(personaje->personaje_x+128>400 && personaje->personaje_x+128<450
+      //          & personaje->personaje_y+128>400 && personaje->personaje_y+128<450)
+      //      exit(0);
 
 
     }
