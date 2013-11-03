@@ -2,8 +2,8 @@
 
 Cocodrilo::Cocodrilo(Personaje * personaje)
 {
-    this->x=700;
-    this->y=100;
+    this->x=0;
+    this->y=400;
 
     this->sprites.push_back(IMG_Load("personajes/croc01.png"));
     this->sprites.push_back(IMG_Load("personajes/croc02.png"));
@@ -44,14 +44,17 @@ void Cocodrilo::dibujar(SDL_Surface *screen)
 
 void Cocodrilo::logica()
 {
-    if(derecha)
-        this->y++;
+  if(derecha)
+        this->x+=20;
     else
-        this->y--;
+        this->x-=20;
 
-    if(y>250)
+    if(x>850)
         derecha=false;
 
-    if(y<50)
+    if(x<0)
         derecha=true;
+
 }
+
+

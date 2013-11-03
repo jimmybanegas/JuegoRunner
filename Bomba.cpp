@@ -2,8 +2,8 @@
 
 Bomba::Bomba(Personaje *personaje)
 {
-    this->x=200;
-    this->y=200;
+    this->x=450;
+    this->y=0;
     this->sprites.push_back(IMG_Load("personajes/bomba01.png"));
     this->sprites.push_back(IMG_Load("personajes/bomba02.png"));
     this->sprites.push_back(IMG_Load("personajes/bomba03.png"));
@@ -41,14 +41,13 @@ void Bomba::dibujar(SDL_Surface *screen)
 
 void Bomba::logica()
 {
-    if(derecha)
-        this->x++;
-    else
-        this->x--;
+    if(x>500)
+        x=400;
 
-    if(x>400)
-       derecha=false;
+    if(y>300)
+        y=0;
 
-    if(x<50)
-        derecha=true;
+        this->x+=8;
+        this->y+=8;
+
 }

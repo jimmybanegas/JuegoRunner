@@ -2,8 +2,8 @@
 
 Fantasmita::Fantasmita(Personaje *personaje)
 {
-    this->x=100;
-    this->y=100;
+    this->x=0;
+    this->y=350;
 
     this->sprites.push_back(IMG_Load("personajes/volador01.png"));
     this->sprites.push_back(IMG_Load("personajes/volador02.png"));
@@ -48,17 +48,17 @@ void Fantasmita::logica()
      }
     else
       {
+        if(this->x>500)
+            this->x=0;
+
         this->y-=8;
         this->x+=8;
       }
 
-    if(x>900)
-        this->x-=8;
-        this->y+=8;
-
     if(y>400)
         arriba=false;
 
-    if(y<-10)
+    if(y<10)
         arriba=true;
+
 }
