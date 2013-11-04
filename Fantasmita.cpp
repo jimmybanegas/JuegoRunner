@@ -43,16 +43,16 @@ void Fantasmita::logica()
 {
     if(arriba)
      {
-        this->y+=8;
-        this->x+=8;
+        this->y+=2;
+        this->x+=2;
      }
     else
       {
         if(this->x>500)
             this->x=0;
 
-        this->y-=4;
-        this->x+=4;
+        this->y-=2;
+        this->x+=2;
       }
 
     if(y>400)

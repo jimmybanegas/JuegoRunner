@@ -45,9 +45,9 @@ void Cocodrilo::dibujar(SDL_Surface *screen)
 void Cocodrilo::logica()
 {
   if(derecha)
-        this->x+=20;
+        this->x+=4;
     else
-        this->x-=20;
+        this->x-=4;
 
     if(x>850)
         derecha=false;
