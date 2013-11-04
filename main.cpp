@@ -22,7 +22,7 @@ const int SCREEN_BPP = 32;
 
 //The surfaces
 SDL_Surface *background = NULL;
-//SDL_Surface *up = NULL;
+SDL_Surface *meta = NULL;
 //SDL_Surface *down = NULL;
 //SDL_Surface *left = NULL;
 //SDL_Surface *right = NULL;
@@ -74,7 +74,7 @@ bool init()
     }
 
     //Set the window caption
-    SDL_WM_SetCaption( "Press an Arrow Key", NULL );
+    SDL_WM_SetCaption( "Runner", NULL );
 
     //If everything initialized fine
     return true;
@@ -108,13 +108,13 @@ void clean_up()
 {
     //Free the surfaces
     SDL_FreeSurface( background );
-    //  SDL_FreeSurface( up );
+    SDL_FreeSurface( meta );
     //SDL_FreeSurface( down );
     //SDL_FreeSurface( left );
     //SDL_FreeSurface( right );
 
     //Close the font
-    //TTF_CloseFont( font );
+     TTF_CloseFont( font );
 
     //Quit SDL_ttf
     TTF_Quit();
@@ -150,10 +150,10 @@ int main( int argc, char* args[] )
     enemigos.push_back(new Llamas(personaje));
     enemigos.push_back(new Cocodrilo(personaje));
 
-    //SDL_Surface *meta=IMG_Load("meta.png"); //
+    SDL_Surface *meta=IMG_Load("personajes/meta.png"); //
 
     //Render the text
-//   up = TTF_RenderText_Solid( font, "Up", textColor );
+     meta = TTF_RenderText_Solid( font, "META", textColor );
     // down = TTF_RenderText_Solid( font, "Down", textColor );
     //left = TTF_RenderText_Solid( font, "Left", textColor );
     // right = TTF_RenderText_Solid( font, "Right", textColor );
@@ -178,8 +178,7 @@ int main( int argc, char* args[] )
 
         //Apply the background
         apply_surface( 0, 0, background, screen );
-//    apply_surface(400,300,meta,screen);
-
+        apply_surface( 930 , 510 , meta, screen );
 
         if(personaje->moviendose)
             apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[cuadro_actual], screen );
@@ -192,13 +191,14 @@ int main( int argc, char* args[] )
         for(int i=0; i<enemigos.size(); i++)
             enemigos[i]->logica();
 
+
         //Get the keystates
         Uint8 *keystates = SDL_GetKeyState( NULL );
 
         //If up is pressed
         if( keystates[ SDLK_UP ] )
         {
-            //  apply_surface( ( SCREEN_WIDTH - up->w ) / 2, ( SCREEN_HEIGHT / 2 - up->h ) / 2, up, screen );
+
                personaje->personaje_y-=10;
                personaje->moviendose=true;
         }

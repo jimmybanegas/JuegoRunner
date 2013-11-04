@@ -55,6 +55,24 @@ void Cocodrilo::logica()
     if(x<0)
         derecha=true;
 
+  //TERMINAR EL JUEGO
+
+
+    //Get offsets
+
+
+    //Blit
+
+
+    if(personaje->personaje_y-128==this->y+256)
+      {
+          exit(0);
+          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
+
+      }
+
+
+
 }
 
 

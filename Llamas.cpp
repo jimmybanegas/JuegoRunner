@@ -2,7 +2,7 @@
 
 Llamas::Llamas(Personaje * personaje)
 {
-    this->x=500;
+    this->x=850;
     this->y=100;
 
     this->sprites.push_back(IMG_Load("personajes/llama01.png"));
@@ -41,13 +41,22 @@ void Llamas::dibujar(SDL_Surface *screen)
 void Llamas::logica()
 {
     if(derecha)
-        this->y++;
+        this->y+=3;
     else
-        this->y--;
+        this->y-=3;
 
-    if(y>250)
+    if(y>380)
        derecha=false;
 
-    if(y<50)
+    if(y<0)
        derecha=true;
+
+
+     if(personaje->personaje_x+128==this->x && personaje->personaje_y+128==this->y)
+      {
+           exit(0);
+          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
+
+      }
+
 }

@@ -11,6 +11,9 @@ class Enemigo
 {
 public:
     Personaje *personaje;
+    SDL_Surface *screen2;
+    SDL_Rect offset;
+
     int x,y,cuadroactual;
     bool derecha;
     bool izquierda;

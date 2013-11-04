@@ -47,7 +47,15 @@ void Bomba::logica()
     if(y>300)
         y=0;
 
-        this->x+=8;
-        this->y+=8;
+        this->x+=2;
+        this->y+=2;
+
+
+   if(personaje->personaje_x+128==this->x && personaje->personaje_y+128==this->y)
+      {
+           exit(0);
+          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
+
+      }
 
 }

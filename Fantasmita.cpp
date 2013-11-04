@@ -51,8 +51,8 @@ void Fantasmita::logica()
         if(this->x>500)
             this->x=0;
 
-        this->y-=8;
-        this->x+=8;
+        this->y-=4;
+        this->x+=4;
       }
 
     if(y>400)
@@ -60,5 +60,15 @@ void Fantasmita::logica()
 
     if(y<10)
         arriba=true;
+
+
+      if(personaje->personaje_x+128==this->x && personaje->personaje_y+128==this->y)
+      {
+           exit(0);
+          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
+
+      }
+
+
 
 }

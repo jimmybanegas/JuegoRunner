@@ -27,4 +27,3 @@ Personaje::~Personaje()
     //dtor
 }
 
-

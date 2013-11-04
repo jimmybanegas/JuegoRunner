@@ -8,6 +8,9 @@ Enemigo::Enemigo()
     arriba=true;
     abajo=false;
     cuadroactual=0;
+    SDL_Surface *screen2 = NULL;
+    offset.x = this->x;
+    offset.y = this->y;
     //ctor
 }
 
@@ -53,5 +56,6 @@ void Enemigo::logica()
 
     if(x<50)
         derecha=true;
+
 
 }
