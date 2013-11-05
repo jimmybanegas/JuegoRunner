@@ -7,7 +7,7 @@ class Bomba : public Enemigo
 {
 public:
     Bomba(Personaje *personaje);
-    void logica();
+    void logica(SDL_Surface *screen);
     void dibujar(SDL_Surface *screen);
     virtual ~Bomba();
 protected:

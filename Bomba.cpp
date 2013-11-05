@@ -39,7 +39,7 @@ void Bomba::dibujar(SDL_Surface *screen)
 }
 
 
-void Bomba::logica()
+void Bomba::logica(SDL_Surface *screen)
 {
     if(x>500)
         x=400;
@@ -53,8 +53,9 @@ void Bomba::logica()
 
    if(checkCollision())
       {
-           exit(0);
-          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
+          SDL_BlitSurface(IMG_Load("backgroung.png"), NULL, screen, &offset );
+          SDL_BlitSurface(IMG_Load("personajes/gameover.png"), NULL, screen, &offset );
+         // exit(0);
 
       }
 

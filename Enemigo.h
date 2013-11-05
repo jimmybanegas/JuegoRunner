@@ -6,12 +6,13 @@
 #include <string>
 #include <vector>
 #include "Personaje.h"
+#include <conio.h>
 
 class Enemigo
 {
 public:
     Personaje *personaje;
-    SDL_Surface *screen2;
+
     SDL_Rect offset;
 
     int x,y,cuadroactual;
@@ -22,7 +23,7 @@ public:
     std::vector <SDL_Surface*> sprites;
 
     virtual void dibujar(SDL_Surface *screen);
-    virtual void logica();
+    virtual void logica(SDL_Surface *screen);
     virtual bool checkCollision();
 
     Enemigo();

@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <conio.h>
 using namespace std;
 
 Personaje::Personaje(int personaje_x, int personaje_y)

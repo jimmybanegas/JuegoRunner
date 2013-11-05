@@ -8,7 +8,6 @@ Enemigo::Enemigo()
     arriba=true;
     abajo=false;
     cuadroactual=0;
-    SDL_Surface *screen2 = NULL;
     offset.x = this->x;
     offset.y = this->y;
 
@@ -44,7 +43,7 @@ void Enemigo::dibujar(SDL_Surface *screen)
 }
 
 
-void Enemigo::logica()
+void Enemigo::logica(SDL_Surface *screen)
 {
     if(derecha)
         this->x++;
@@ -76,3 +75,4 @@ bool Enemigo::checkCollision()
   }
   return false;
 }
+

@@ -44,7 +44,7 @@ void Cocodrilo::dibujar(SDL_Surface *screen)
 
 
 
-void Cocodrilo::logica()
+void Cocodrilo::logica(SDL_Surface *screen)
 {
   if(derecha)
         this->x+=4;
@@ -61,9 +61,9 @@ void Cocodrilo::logica()
 
     if(checkCollision())
       {
-          exit(0);
-          SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
-
+          SDL_BlitSurface(IMG_Load("backgroung.png"), NULL, screen, &offset );
+          SDL_BlitSurface(IMG_Load("personajes/gameover.png"), NULL, screen, &offset );
+         // exit(0);
       }
 
 

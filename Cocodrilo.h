@@ -6,7 +6,7 @@ class Cocodrilo :public Enemigo
 {
 public:
     Cocodrilo(Personaje * personaje);
-    void logica();
+    void logica(SDL_Surface *screen);
     void dibujar(SDL_Surface *screen);
     virtual ~Cocodrilo();
 protected:
