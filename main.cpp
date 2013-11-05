@@ -5,6 +5,7 @@ and may not be redistributed without written permission.*/
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
+#include "SDL/SDL_mixer.h"
 #include <string>
 #include <iostream>
 #include "Personaje.h"
@@ -23,9 +24,10 @@ const int SCREEN_BPP = 32;
 //The surfaces
 SDL_Surface *background = NULL;
 SDL_Surface *meta = NULL;
-SDL_Surface *gameover = NULL;
-//SDL_Surface *left = NULL;
-//SDL_Surface *right = NULL;
+Mix_Music *music = NULL;
+Mix_Chunk *high = NULL;
+Mix_Music *winner = NULL;
+
 SDL_Surface *screen = NULL;
 
 //The event structure
@@ -36,6 +38,9 @@ TTF_Font *font = NULL;
 
 //The color of the font
 SDL_Color textColor = { 0, 0, 0 };
+
+SDL_Surface *gameover=IMG_Load("personajes/gameover.png"); //
+SDL_Surface *win=IMG_Load("personajes/win.png"); //
 
 void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL )
 {
@@ -73,6 +78,11 @@ bool init()
         return false;
     }
 
+    if( Mix_OpenAudio( 22050, MIX_DEFAULT_FORMAT, 2, 4096 ) == -1 )
+    {
+        return false;
+    }
+
     //Set the window caption
     SDL_WM_SetCaption( "RUNNER", NULL );
 
@@ -101,28 +111,40 @@ bool load_files()
         return false;
     }
 
+    music = Mix_LoadMUS( "beat.wav" );
+    winner =Mix_LoadMUS( "winner.wav" );
+    high = Mix_LoadWAV( "high.wav" );
+
+    if(  high == NULL )
+    {
+        return false;
+    }
+
     //If everything loaded fine
     return true;
 }
 
+
 void clean_up()
 {
-    //Free the surfaces
+        //Free the surfaces
     SDL_FreeSurface( background );
     SDL_FreeSurface( meta );
-    SDL_FreeSurface( gameover );
+  //  SDL_FreeSurface( gameover );
     //SDL_FreeSurface( left );
     //SDL_FreeSurface( right );
-
+    Mix_FreeMusic( music );
+    Mix_FreeChunk( high );
     //Close the font
-     TTF_CloseFont( font );
+    TTF_CloseFont( font );
 
     //Quit SDL_ttf
     TTF_Quit();
-
+    Mix_CloseAudio();
     //Quit SDL
     SDL_Quit();
 }
+
 
 int main( int argc, char* args[] )
 {
@@ -141,24 +163,17 @@ int main( int argc, char* args[] )
         return 1;
     }
 
-
     Personaje *personaje=new Personaje(0,0);
 
     std::vector<Enemigo*> enemigos;
 
     enemigos.push_back(new Fantasmita(personaje));
     enemigos.push_back(new Bomba(personaje));
-    enemigos.push_back(new Llamas(personaje));
-    enemigos.push_back(new Cocodrilo(personaje));
-
-    SDL_Surface *gameover=IMG_Load("personajes/gameover.png"); //
-
+   // enemigos.push_back(new Llamas(personaje));
+    //enemigos.push_back(new Cocodrilo(personaje));
 
     //Render the text
      meta = TTF_RenderText_Solid( font, "META", textColor );
-  //   gameover = TTF_RenderText_Solid( font, "GAME OVER.... SO SORRY", textColor );
-    //left = TTF_RenderText_Solid( font, "Left", textColor );
-    // right = TTF_RenderText_Solid( font, "Right", textColor );
 
     int duracion_animacion=10;
     int cuadro_actual=0;
@@ -189,8 +204,27 @@ int main( int argc, char* args[] )
 
         for(int i=0; i<enemigos.size(); i++)
         {
+            if(enemigos[i]->checkCollision())
+            {
+                enemigos.clear();
+                Mix_PlayMusic( music, -1 );
+                apply_surface( 400 , 0 , gameover , screen );
+                //apply_surface( 0 , 0 , background , screen );
+                //Mix_PlayMusic( music, -1 );
+               // personaje=NULL;
+               // SDL_Delay(2500);
+
+            }
+
+            if(personaje->getX()==850 && personaje->getY()==400)
+            {
+               Mix_PlayMusic( winner, -1 );
+               apply_surface( 400 , 200 , win , screen );
+            }
+
             enemigos[i]->logica(screen);
             enemigos[i]->dibujar(screen);
+
         }
 
 
@@ -262,9 +296,6 @@ int main( int argc, char* args[] )
 
      if(personaje->getX()<-70)
         personaje->personaje_x=-70;
-
-
-
 
     }
 

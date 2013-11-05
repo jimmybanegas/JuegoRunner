@@ -59,15 +59,6 @@ void Cocodrilo::logica(SDL_Surface *screen)
 
   //TERMINAR EL JUEGO
 
-    if(checkCollision())
-      {
-          SDL_BlitSurface(IMG_Load("backgroung.png"), NULL, screen, &offset );
-          screen=NULL;
-          SDL_BlitSurface(IMG_Load("personajes/gameover.png"), NULL, screen, &offset );
-         // exit(0);
-      }
-
-
 
 }
 
