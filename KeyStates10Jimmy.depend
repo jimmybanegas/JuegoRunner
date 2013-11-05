@@ -133,21 +133,22 @@
 	<iostream>
 	<conio.h>
 
-1383594229 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\bomba.cpp
+1383661953 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\bomba.cpp
 	"Bomba.h"
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\bomba.h
+1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\bomba.h
 	"Enemigo.h"
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\enemigo.h
+1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\enemigo.h
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
 	<string>
 	<vector>
 	"Personaje.h"
+	<conio.h>
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\personaje.h
+1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\personaje.h
 	"Personaje.h"
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
@@ -155,28 +156,29 @@
 	<string>
 	<vector>
 
-1383595470 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.cpp
+1383676101 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.cpp
 	"Cocodrilo.h"
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.h
+1383676115 c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.h
+	"Enemigo.h"
+	<iostream>
+
+1383661953 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\enemigo.cpp
 	"Enemigo.h"
 
-1383594229 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\enemigo.cpp
-	"Enemigo.h"
-
-1383595491 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\fantasmita.cpp
+1383676360 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\fantasmita.cpp
 	"Fantasmita.h"
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\fantasmita.h
+1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\fantasmita.h
 	"Enemigo.h"
 
-1383594229 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.cpp
+1383661953 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.cpp
 	"Llamas.h"
 
-1383594229 c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.h
+1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.h
 	"Enemigo.h"
 
-1383594229 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
+1383676696 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
@@ -190,7 +192,7 @@
 	"Llamas.h"
 	"Cocodrilo.h"
 
-1383594229 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\personaje.cpp
+1383661953 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\personaje.cpp
 	"Personaje.h"
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
@@ -198,4 +200,5 @@
 	<string>
 	<vector>
 	<iostream>
+	<conio.h>
 

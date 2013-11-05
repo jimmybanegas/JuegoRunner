@@ -65,8 +65,9 @@ void Fantasmita::logica(SDL_Surface *screen)
       if(checkCollision())
       {
 
-          SDL_BlitSurface(IMG_Load("backgroung.png"), NULL, screen, &offset );
-          SDL_BlitSurface(IMG_Load("personajes/gameover.png"), NULL, screen, &offset );
+         SDL_BlitSurface(IMG_Load("backgroung.png"), NULL, screen, &offset );
+
+         SDL_BlitSurface(IMG_Load("personajes/gameover.png"), NULL, screen, &offset );
          // exit(0);
       }
 

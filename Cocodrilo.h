@@ -1,6 +1,7 @@
 #ifndef COCODRILO_H
 #define COCODRILO_H
 #include "Enemigo.h"
+#include <iostream>
 
 class Cocodrilo :public Enemigo
 {

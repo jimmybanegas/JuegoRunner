@@ -74,7 +74,7 @@ bool init()
     }
 
     //Set the window caption
-    SDL_WM_SetCaption( "Runner", NULL );
+    SDL_WM_SetCaption( "RUNNER", NULL );
 
     //If everything initialized fine
     return true;
@@ -151,11 +151,12 @@ int main( int argc, char* args[] )
     enemigos.push_back(new Llamas(personaje));
     enemigos.push_back(new Cocodrilo(personaje));
 
-    SDL_Surface *meta=IMG_Load("personajes/meta.png"); //
+    SDL_Surface *gameover=IMG_Load("personajes/gameover.png"); //
+
 
     //Render the text
      meta = TTF_RenderText_Solid( font, "META", textColor );
-     gameover = TTF_RenderText_Solid( font, "GAME OVER.... SO SORRY", textColor );
+  //   gameover = TTF_RenderText_Solid( font, "GAME OVER.... SO SORRY", textColor );
     //left = TTF_RenderText_Solid( font, "Left", textColor );
     // right = TTF_RenderText_Solid( font, "Right", textColor );
 
@@ -188,23 +189,8 @@ int main( int argc, char* args[] )
 
         for(int i=0; i<enemigos.size(); i++)
         {
-          if(enemigos[i]->checkCollision()==false)
-          {
-              enemigos[i]->logica(screen);
-              enemigos[i]->dibujar(screen);
-
-          }
-          else
-          {
-            enemigos.clear();
-            personaje=NULL;
-
-            apply_surface( 0, 0, background, screen );
-            SDL_Delay( 100 );
-            apply_surface( 250, 200, gameover, screen );
-            SDL_Delay( 3000 );
-          }
-
+            enemigos[i]->logica(screen);
+            enemigos[i]->dibujar(screen);
         }
 
 
@@ -263,15 +249,26 @@ int main( int argc, char* args[] )
             iteracion=0;
             personaje->moviendose=false;
         }
+
+
+     if(personaje->getY()>400)
+       personaje->personaje_y=400;
+
+     if(personaje->getY()<-70)
+        personaje->personaje_y=-70;
+
+     if(personaje->getX()>900)
+      personaje->personaje_x=900;
+
+     if(personaje->getX()<-70)
+        personaje->personaje_x=-70;
+
+
+
+
     }
 
-     if(personaje->getY()>=SCREEN_HEIGHT)
-      personaje->personaje_y--;
 
-     if(personaje->getX()>=SCREEN_WIDTH)
-     {
-      personaje->personaje_x--;
-     }
 
     //Clean up
     clean_up();
