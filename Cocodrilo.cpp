@@ -42,6 +42,8 @@ void Cocodrilo::dibujar(SDL_Surface *screen)
 }
 
 
+
+
 void Cocodrilo::logica()
 {
   if(derecha)
@@ -57,14 +59,7 @@ void Cocodrilo::logica()
 
   //TERMINAR EL JUEGO
 
-
-    //Get offsets
-
-
-    //Blit
-
-
-    if(personaje->personaje_y-128==this->y+256)
+    if(checkCollision())
       {
           exit(0);
           SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );

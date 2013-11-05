@@ -7,7 +7,6 @@
 #include <iostream>
 using namespace std;
 
-
 Personaje::Personaje(int personaje_x, int personaje_y)
 {
     this->personaje_x=personaje_x;
@@ -26,4 +25,15 @@ Personaje::~Personaje()
 {
     //dtor
 }
+
+int Personaje::getX()
+{
+    return personaje_x;
+}
+
+int Personaje::getY()
+{
+    return personaje_y;
+}
+
 

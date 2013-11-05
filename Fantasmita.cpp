@@ -62,13 +62,11 @@ void Fantasmita::logica()
         arriba=true;
 
 
-      if(personaje->personaje_x+128==this->x && personaje->personaje_y+128==this->y)
+      if(checkCollision())
       {
            exit(0);
           SDL_BlitSurface( IMG_Load("personajes/gameover.png"), NULL, screen2, &offset );
 
       }
-
-
 
 }

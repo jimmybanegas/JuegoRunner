@@ -23,6 +23,7 @@ public:
 
     virtual void dibujar(SDL_Surface *screen);
     virtual void logica();
+    virtual bool checkCollision();
 
     Enemigo();
     virtual ~Enemigo();
@@ -31,3 +32,4 @@ private:
 };
 
 #endif // ENEMIGO_H
+

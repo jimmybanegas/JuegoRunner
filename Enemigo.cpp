@@ -11,7 +11,7 @@ Enemigo::Enemigo()
     SDL_Surface *screen2 = NULL;
     offset.x = this->x;
     offset.y = this->y;
-    //ctor
+
 }
 
 Enemigo::~Enemigo()
@@ -58,4 +58,21 @@ void Enemigo::logica()
         derecha=true;
 
 
+}
+
+bool Enemigo::checkCollision()
+{
+ if(
+    (((personaje->getX() >= this->x)&& (personaje->getX() <= this->x+100)) ||
+    ((personaje->getX()+100 >= this->x)&& (personaje->getX()+100 <= this->x+100))) &&
+    (((personaje->getY() >= this->y) && (personaje->getY() <= this->y+170)) ||
+    ((personaje->getY()+170 >= this->y) && (personaje->getY()+170 <= this->y+170))))
+  {
+   return true;
+  }
+  else
+  {
+    return false;
+  }
+  return false;
 }

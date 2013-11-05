@@ -14,8 +14,11 @@ class Personaje
 public:
     int personaje_x;
     int personaje_y;
-    bool moviendose;
 
+
+    bool moviendose;
+    int getX();
+    int getY();
     std::vector<SDL_Surface*> personajes;
 
     Personaje(int personaje_x, int personaje_y);
