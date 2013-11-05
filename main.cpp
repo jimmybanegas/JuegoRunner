@@ -23,7 +23,7 @@ const int SCREEN_BPP = 32;
 //The surfaces
 SDL_Surface *background = NULL;
 SDL_Surface *meta = NULL;
-//SDL_Surface *down = NULL;
+SDL_Surface *gameover = NULL;
 //SDL_Surface *left = NULL;
 //SDL_Surface *right = NULL;
 SDL_Surface *screen = NULL;
@@ -80,6 +80,7 @@ bool init()
     return true;
 }
 
+
 bool load_files()
 {
     //Load the background image
@@ -109,7 +110,7 @@ void clean_up()
     //Free the surfaces
     SDL_FreeSurface( background );
     SDL_FreeSurface( meta );
-    //SDL_FreeSurface( down );
+    SDL_FreeSurface( gameover );
     //SDL_FreeSurface( left );
     //SDL_FreeSurface( right );
 
@@ -154,7 +155,7 @@ int main( int argc, char* args[] )
 
     //Render the text
      meta = TTF_RenderText_Solid( font, "META", textColor );
-    // down = TTF_RenderText_Solid( font, "Down", textColor );
+     gameover = TTF_RenderText_Solid( font, "GAME OVER.... SO SORRY", textColor );
     //left = TTF_RenderText_Solid( font, "Left", textColor );
     // right = TTF_RenderText_Solid( font, "Right", textColor );
 
@@ -186,10 +187,25 @@ int main( int argc, char* args[] )
             apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[0], screen );
 
         for(int i=0; i<enemigos.size(); i++)
-            enemigos[i]->dibujar(screen);
+        {
+          if(enemigos[i]->checkCollision()==false)
+          {
+              enemigos[i]->logica(screen);
+              enemigos[i]->dibujar(screen);
 
-        for(int i=0; i<enemigos.size(); i++)
-            enemigos[i]->logica();
+          }
+          else
+          {
+            enemigos.clear();
+            personaje=NULL;
+
+            apply_surface( 0, 0, background, screen );
+            SDL_Delay( 100 );
+            apply_surface( 250, 200, gameover, screen );
+            SDL_Delay( 3000 );
+          }
+
+        }
 
 
         //Get the keystates
@@ -247,25 +263,15 @@ int main( int argc, char* args[] )
             iteracion=0;
             personaje->moviendose=false;
         }
-
-
-        //Hacer que termine el juego cuando el personaje llegue a una posición, la imagen mete
-
-        /*    for(int i=0;i<50;i++)
-            {
-                for(int j=0;j<50;j++)
-                {
-                    if(personaje.x==400+i && personaje.y-j==00)
-                     exit(0);
-                }
-            }*/ // esto es haciendolo con ciclos
-
-      //  if(personaje->personaje_x+128>400 && personaje->personaje_x+128<450
-      //          & personaje->personaje_y+128>400 && personaje->personaje_y+128<450)
-      //      exit(0);
-
-
     }
+
+     if(personaje->getY()>=SCREEN_HEIGHT)
+      personaje->personaje_y--;
+
+     if(personaje->getX()>=SCREEN_WIDTH)
+     {
+      personaje->personaje_x--;
+     }
 
     //Clean up
     clean_up();
