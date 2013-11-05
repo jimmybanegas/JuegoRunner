@@ -156,10 +156,10 @@ int main( int argc, char* args[] )
 
     std::vector<Enemigo*> enemigos;
 
-  //  enemigos.push_back(new Fantasmita(personaje));
+    enemigos.push_back(new Fantasmita(personaje));
     enemigos.push_back(new Bomba(personaje));
-   // enemigos.push_back(new Llamas(personaje));
-    //enemigos.push_back(new Cocodrilo(personaje));
+    enemigos.push_back(new Llamas(personaje));
+    enemigos.push_back(new Cocodrilo(personaje));
 
     //Render the text
      meta = TTF_RenderText_Solid( font, "META", textColor );
