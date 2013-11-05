@@ -1,7 +1,3 @@
-/*This source code copyrighted by Lazy Foo' Productions (2004-2013)
-and may not be redistributed without written permission.*/
-
-//The headers
 #include "SDL/SDL.h"
 #include "SDL/SDL_image.h"
 #include "SDL/SDL_ttf.h"
@@ -29,13 +25,10 @@ Mix_Chunk *high = NULL;
 Mix_Music *winner = NULL;
 
 SDL_Surface *screen = NULL;
-
 //The event structure
 SDL_Event event;
-
 //The font
 TTF_Font *font = NULL;
-
 //The color of the font
 SDL_Color textColor = { 0, 0, 0 };
 
@@ -130,14 +123,10 @@ void clean_up()
         //Free the surfaces
     SDL_FreeSurface( background );
     SDL_FreeSurface( meta );
-  //  SDL_FreeSurface( gameover );
-    //SDL_FreeSurface( left );
-    //SDL_FreeSurface( right );
     Mix_FreeMusic( music );
     Mix_FreeChunk( high );
     //Close the font
     TTF_CloseFont( font );
-
     //Quit SDL_ttf
     TTF_Quit();
     Mix_CloseAudio();
@@ -167,7 +156,7 @@ int main( int argc, char* args[] )
 
     std::vector<Enemigo*> enemigos;
 
-    enemigos.push_back(new Fantasmita(personaje));
+  //  enemigos.push_back(new Fantasmita(personaje));
     enemigos.push_back(new Bomba(personaje));
    // enemigos.push_back(new Llamas(personaje));
     //enemigos.push_back(new Cocodrilo(personaje));
@@ -216,10 +205,12 @@ int main( int argc, char* args[] )
 
             }
 
-            if(personaje->getX()==850 && personaje->getY()==400)
+            if(personaje->getX()>=850 && personaje->getY()>=400)
             {
                Mix_PlayMusic( winner, -1 );
                apply_surface( 400 , 200 , win , screen );
+
+
             }
 
             enemigos[i]->logica(screen);

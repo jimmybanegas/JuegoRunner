@@ -42,8 +42,6 @@ void Cocodrilo::dibujar(SDL_Surface *screen)
 }
 
 
-
-
 void Cocodrilo::logica(SDL_Surface *screen)
 {
   if(derecha)

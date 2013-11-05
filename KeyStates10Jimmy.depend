@@ -156,7 +156,7 @@
 	<string>
 	<vector>
 
-1383677812 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.cpp
+1383683339 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.cpp
 	"Cocodrilo.h"
 
 1383676115 c:\users\affisa-jimmy\documents\progra3\juegorunner\cocodrilo.h
@@ -178,7 +178,7 @@
 1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.h
 	"Enemigo.h"
 
-1383680938 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
+1383683523 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
