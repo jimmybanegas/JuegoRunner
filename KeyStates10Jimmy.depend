@@ -178,7 +178,7 @@
 1383661953 c:\users\affisa-jimmy\documents\progra3\juegorunner\llamas.h
 	"Enemigo.h"
 
-1383683720 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
+1383948904 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\main.cpp
 	"SDL/SDL.h"
 	"SDL/SDL_image.h"
 	"SDL/SDL_ttf.h"
@@ -192,6 +192,7 @@
 	"Bomba.h"
 	"Llamas.h"
 	"Cocodrilo.h"
+	"Avion.h"
 
 1383661953 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\personaje.cpp
 	"Personaje.h"
@@ -202,4 +203,15 @@
 	<vector>
 	<iostream>
 	<conio.h>
+
+1383942939 source:c:\users\affisa-jimmy\documents\progra3\juegorunner\avion.cpp
+	"Avion.h"
+
+1383942890 c:\users\affisa-jimmy\documents\progra3\juegorunner\avion.h
+	"Personaje.h"
+	"SDL/SDL.h"
+	"SDL/SDL_image.h"
+	"SDL/SDL_ttf.h"
+	<string>
+	<vector>
 

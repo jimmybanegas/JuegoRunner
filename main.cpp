@@ -11,7 +11,9 @@
 #include "Bomba.h"
 #include "Llamas.h"
 #include "Cocodrilo.h"
+#include "Avion.h"
 
+using namespace std;
 //Screen attributes
 const int SCREEN_WIDTH = 1100;
 const int SCREEN_HEIGHT = 600;
@@ -20,9 +22,11 @@ const int SCREEN_BPP = 32;
 //The surfaces
 SDL_Surface *background = NULL;
 SDL_Surface *meta = NULL;
+SDL_Surface *menu2 = NULL;
 Mix_Music *music = NULL;
 Mix_Chunk *high = NULL;
 Mix_Music *winner = NULL;
+Mix_Music *musicfondo = NULL;
 
 SDL_Surface *screen = NULL;
 //The event structure
@@ -32,8 +36,9 @@ TTF_Font *font = NULL;
 //The color of the font
 SDL_Color textColor = { 0, 0, 0 };
 
-SDL_Surface *gameover=IMG_Load("personajes/gameover.png"); //
+
 SDL_Surface *win=IMG_Load("personajes/win.png"); //
+SDL_Surface *menu=IMG_Load("personajes/menuc01.png");
 
 void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination, SDL_Rect* clip = NULL )
 {
@@ -47,6 +52,8 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,
     //Blit
     SDL_BlitSurface( source, clip, destination, &offset );
 }
+
+
 
 bool init()
 {
@@ -79,6 +86,7 @@ bool init()
     //Set the window caption
     SDL_WM_SetCaption( "RUNNER", NULL );
 
+
     //If everything initialized fine
     return true;
 }
@@ -106,6 +114,7 @@ bool load_files()
 
     music = Mix_LoadMUS( "beat.wav" );
     winner =Mix_LoadMUS( "winner.wav" );
+    musicfondo =Mix_LoadMUS( "main.wav" );
     high = Mix_LoadWAV( "high.wav" );
 
     if(  high == NULL )
@@ -135,9 +144,12 @@ void clean_up()
 }
 
 
+
 int main( int argc, char* args[] )
 {
-    //Quit flag
+
+    SDL_Surface *gameover=IMG_Load("personajes/gameover.png"); //
+
     bool quit = false;
 
     //Initialize
@@ -154,6 +166,8 @@ int main( int argc, char* args[] )
 
     Personaje *personaje=new Personaje(0,0);
 
+  //  Avion *avion=new Avion(800,0);
+
     std::vector<Enemigo*> enemigos;
 
     enemigos.push_back(new Fantasmita(personaje));
@@ -162,15 +176,18 @@ int main( int argc, char* args[] )
     enemigos.push_back(new Cocodrilo(personaje));
 
     //Render the text
-     meta = TTF_RenderText_Solid( font, "META", textColor );
+    meta = TTF_RenderText_Solid( font, "META", textColor );
 
     int duracion_animacion=10;
     int cuadro_actual=0;
     int iteracion=0;
 
+    apply_surface( 0, 0, background, screen );
+
     //While the user hasn't quit
     while( quit == false )
     {
+      //  Mix_PlayMusic( musicfondo, -1 );
         //While there's events to handle
         while( SDL_PollEvent( &event ) )
         {
@@ -186,38 +203,50 @@ int main( int argc, char* args[] )
         apply_surface( 0, 0, background, screen );
         apply_surface( 930 , 510 , meta, screen );
 
-        if(personaje->moviendose)
-            apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[cuadro_actual], screen );
-        else
-            apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[0], screen );
+//        apply_surface( avion->x , avion->y , avion->sprites[0], screen );
+
 
         for(int i=0; i<4; i++)
         {
-            if(enemigos[i]->checkCollision())
-            {
-                enemigos.clear();
-                Mix_PlayMusic( music, -1 );
-                apply_surface( 400 , 0 , gameover , screen );
-                //apply_surface( 0 , 0 , background , screen );
-                //Mix_PlayMusic( music, -1 );
-               // personaje=NULL;
-               // SDL_Delay(2500);
+            enemigos[i]->logica(screen);
+        }
 
-            }
+        for(int i=0; i<4; i++)
+        {
 
             if(personaje->getX()>=850 && personaje->getY()>=400)
             {
                Mix_PlayMusic( winner, -1 );
                apply_surface( 400 , 200 , win , screen );
 
+            }
+
+            if(enemigos[i]->checkCollision())
+            {
+              SDL_Rect offset;
+              offset.x = 0;
+              offset.y = 0;
+              SDL_BlitSurface( gameover, NULL, screen, &offset );
+
+              quit=true;
 
             }
 
-            enemigos[i]->logica(screen);
-            enemigos[i]->dibujar(screen);
 
         }
 
+
+        if(personaje->moviendose)
+            apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[cuadro_actual], screen );
+        else
+            apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[0], screen );
+
+
+        for(int i=0; i<4; i++)
+        {
+            enemigos[i]->dibujar(screen);
+
+        }
 
         //Get the keystates
         Uint8 *keystates = SDL_GetKeyState( NULL );
@@ -225,7 +254,6 @@ int main( int argc, char* args[] )
         //If up is pressed
         if( keystates[ SDLK_UP ] )
         {
-
                personaje->personaje_y-=10;
                personaje->moviendose=true;
         }
@@ -255,6 +283,7 @@ int main( int argc, char* args[] )
              personaje->moviendose=true;
         }
 
+
         //Update the screen
         if( SDL_Flip( screen ) == -1 )
         {
@@ -276,6 +305,7 @@ int main( int argc, char* args[] )
         }
 
 
+
      if(personaje->getY()>400)
        personaje->personaje_y=400;
 
@@ -288,12 +318,15 @@ int main( int argc, char* args[] )
      if(personaje->getX()<-70)
         personaje->personaje_x=-70;
 
+
+
+        //Clean up
     }
 
 
-
-    //Clean up
-    clean_up();
+    //clean_up();
 
     return 0;
+
+
 }
