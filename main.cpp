@@ -191,7 +191,7 @@ int main( int argc, char* args[] )
         else
             apply_surface( personaje->personaje_x, personaje->personaje_y, personaje->personajes[0], screen );
 
-        for(int i=0; i<enemigos.size(); i++)
+        for(int i=0; i<4; i++)
         {
             if(enemigos[i]->checkCollision())
             {
